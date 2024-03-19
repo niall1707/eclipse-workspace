@@ -1,0 +1,32 @@
+package week3;
+
+public class PrivateHuman {
+    private int priage = 52;
+    private String priname = "Tom Cruise";
+
+    public int getAge() {
+        return priage;
+    }
+
+    public void setAge(int a) {
+        priage = a;
+    }
+
+    public String getName() {
+        return priname;
+    }
+
+    public void setName(String n) {
+        priname = n;
+    }
+}
+
+public class Demo1 {
+
+    public static void main(String[] args) {
+        PrivateHuman obj1 = new PrivateHuman();
+        obj1.setAge(52);
+        obj1.setName("Tom Cruise");
+        System.out.println(obj1.getName() + ":" + obj1.getAge());
+    }
+}

@@ -1,0 +1,78 @@
+package week8;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+class Job {
+    String role;
+    double salary;
+
+    public Job(String role, double salary) {
+        setRole(role);
+        setSalary(salary);
+    }
+
+    public void setRole(String role) {
+        FileProcessor fileProcessor = new FileProcessor();
+        List<String> validRoles = fileProcessor.readRolesFromFile("roles.txt");
+
+        if (validRoles.contains(role)) {
+            this.role = role;
+            fileProcessor.writeRoleToFile(role, "RolesUsed.txt");
+        } else {
+            System.out.println("Invalid role: " + role);
+        }
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+
+class FileProcessor {
+    public List<String> readRolesFromFile(String filename) {
+        List<String> roles = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                roles.add(line.trim());
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading roles from file: " + e.getMessage());
+        }
+        return roles;
+    }
+
+    public void writeRoleToFile(String role, String filename) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {
+            writer.println(role);
+        } catch (IOException e) {
+            System.out.println("Error writing role to file: " + e.getMessage());
+        }
+    }
+}
+
+public class Control {
+    public static void main(String[] args) {
+        Job job1 = new Job("painter", 80000.00);
+        System.out.println("Role: " + job1.getRole());
+        System.out.println("Salary: " + job1.getSalary());
+
+        Job job2 = new Job("Lawyer", 100000.00);
+        System.out.println("Role: " + job2.getRole());
+        System.out.println("Salary: " + job2.getSalary());
+    }
+}

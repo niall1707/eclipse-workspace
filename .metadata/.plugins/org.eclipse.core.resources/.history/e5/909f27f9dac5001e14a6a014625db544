@@ -1,0 +1,11 @@
+package week3;
+
+public class Studient {
+	private int studient_ID;
+	private String Name;
+	
+
+	
+	
+
+}

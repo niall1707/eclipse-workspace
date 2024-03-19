@@ -1,0 +1,14 @@
+package week8;
+
+public class Job {
+
+	String role;
+	
+	double salary;
+
+	Job(String role, double salary){
+		this.role = role;
+		this.salary = salary;
+	}
+
+}

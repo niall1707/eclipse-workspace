@@ -1,0 +1,23 @@
+package week3;
+
+public class PrivateHuman {
+    private int priage = 52;
+    private String priname = "Tom Cruise";
+
+    public int getAge() {
+        return priage;
+    }
+
+    public void setAge(int a) {
+        priage = a;
+    }
+
+    public String getName() {
+        return priname;
+    }
+
+    public void setName(String n) {
+        priname = n;
+    }
+}
+

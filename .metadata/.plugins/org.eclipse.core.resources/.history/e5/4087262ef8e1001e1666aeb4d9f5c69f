@@ -1,0 +1,12 @@
+package week8;
+
+public class Control {
+
+	public static void main(String[] args) {
+	Job Job1 = new Job("Doc", 100000);
+
+	System.out.println(Job1.role);
+	System.out.println(Job1.salary);
+	}
+
+}

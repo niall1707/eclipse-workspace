@@ -1,0 +1,8 @@
+package week5_class;
+
+ class shape{
+	public static void main(String a[]) {
+		sqr obj = new sqr();
+	}
+	
+}
